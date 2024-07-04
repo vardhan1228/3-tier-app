@@ -105,7 +105,7 @@ resource "aws_security_group" "frontend-server-sg" {
   name        = "frontend-server-sg"
   description = "Allow inbound traffic "
   vpc_id      = aws_vpc.three-tier.id
-  depends_on = [ aws_vpc.three-tier ]
+  depends_on = [ aws_vpc.three-tier,aws_security_group.alb-frontend-sg ]
 
  ingress {
     description     = "http"
@@ -143,7 +143,7 @@ resource "aws_security_group" "backend-server-sg" {
   name        = "backend-server-sg"
   description = "Allow inbound traffic"
   vpc_id      = aws_vpc.three-tier.id
-  depends_on = [ aws_vpc.three-tier ]
+  depends_on = [ aws_vpc.three-tier,aws_security_group.alb-backend-sg ]
 
  ingress {
     description     = "http"
