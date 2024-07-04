@@ -28,3 +28,8 @@ variable "key-name" {
     default = "sri"
   
 }
+variable "backupr-retention" {
+    type = number
+    default = "7"
+  
+}

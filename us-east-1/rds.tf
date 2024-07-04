@@ -4,14 +4,16 @@ resource "aws_db_instance" "rds" {
   engine                 = "mysql"
   engine_version         = "8.0.32"
   instance_class         = "db.t3.micro"
-  multi_az               = false
+  multi_az               = true
   db_name                = "mydb"
   username               = var.rds-username
   password               = var.rds-password
   skip_final_snapshot    = true
   vpc_security_group_ids = [aws_security_group.book-rds-sg.id]
   depends_on = [ aws_db_subnet_group.sub-grp ]
-  publicly_accessible = true
+  publicly_accessible = false
+  backup_retention_period = 7
+
   
   tags = {
     DB_identifier = "book-rds"
