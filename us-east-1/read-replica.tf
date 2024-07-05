@@ -19,7 +19,7 @@ resource "aws_db_instance" "replica-postgresql-rds" {
   replicate_source_db = aws_db_instance.rds.arn
   db_subnet_group_name   = data.aws_db_subnet_group.readreplica.id
   vpc_security_group_ids = [data.aws_security_group.vsv.id]
-  depends_on = [ aws_db_instance.rds ]
+  depends_on = [ aws_db_instance.rds ]  
 }
 
 output "replica-url" {
