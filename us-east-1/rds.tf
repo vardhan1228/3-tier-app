@@ -2,6 +2,7 @@ resource "aws_db_instance" "rds" {
   allocated_storage      = 20
   db_subnet_group_name   = aws_db_subnet_group.sub-grp.id
   engine                 = "mysql"
+  identifier = "book-rds"
   engine_version         = "8.0.32"
   instance_class         = "db.t3.micro"
   multi_az               = true
