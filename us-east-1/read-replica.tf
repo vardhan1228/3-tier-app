@@ -15,6 +15,7 @@ resource "aws_db_instance" "replica-postgresql-rds" {
   provider = aws.secondary
   instance_class       = "db.t3.micro"
   skip_final_snapshot  = true
+  identifier = "replica-book-rds"
   backup_retention_period = var.backupr-retention
   replicate_source_db = aws_db_instance.rds.arn
   db_subnet_group_name   = data.aws_db_subnet_group.readreplica.id
